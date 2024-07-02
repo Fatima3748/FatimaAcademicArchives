@@ -1,0 +1,66 @@
+About
+The Class: CardGame is designed to create a memory puzzle game where players flip cards to find matching pairs. It utilizes the Tkinter library for the GUI and the PIL library for image handling. The game includes features such as a timer, a score tracker, and a restart functionality.
+
+How to Install
+On windows, Mac and Linux
+Install python which has TK library and pip already installed
+Now we need to install pillow library as well. install it using: pip install pillow
+
+How to Run
+Python puzzle.py
+
+Logic
+Make empty list of button. Use nested for loop to make 16 buttons and store them in the list
+Make empty list for images and then load  their images. Initially draw buttons with a blank images. Each button has a function hooked with it which upon click loads its image which is already assigned to each button randomly.
+
+Detail of class and Methods which I used
+Class Initialization
+The __init__ method sets up the initial state of the game:
+1. Root Window Setup: Initializes the main Tkinter window and sets the title.
+2. Image Loading: Loads images for the card backs, blank cards, and the set of card faces.
+3. Game Variables: Initializes variables to track game state, such as the buttons, images, exposed cards, score, and timer status.
+4. UI Elements: Creates labels for displaying the timer and score
+Method: init_game
+This method sets up a new game:
+1. Shuffle Cards: Randomizes the order of the card images.
+2. Draw Cards: Places buttons representing the cards on the game grid.
+Method: shuffle_cards
+Randomly shuffles the list of card images to ensure a new arrangement for each game.
+Method: draw_cards
+Creates and arranges the card buttons in a 4x4 grid:
+1. Button Creation: Creates a button for each card position and assigns a click handler.
+2. Grid Placement: Places the buttons on the grid with some padding.
+Method: handleOnClick
+Handles the logic for when a card is clicked:
+1. Click Validation: Ensures no actions are taken if the button is disabled or if clicks are currently not allowed.
+2. Start Timer: Starts the game timer on the first click.
+3. Reveal Card: Changes the button image to show the card face.
+4. Track Exposed Cards: Keeps track of the currently exposed cards.
+5. Check for Matches: If two cards are exposed, initiates a match check after a brief delay.
+Method: check_match
+Determines if the two exposed cards match:
+1. Match Check: Compares the images of the two exposed cards.
+2. Handle Match: If the cards match, increments the score, updates the score display, and disables the matched buttons.
+3. Handle No Match: If the cards do not match, hides the card faces again.
+4. Reset State: Resets tracking variables and allows further clicks.
+5. End Game Check: If all cards are matched, triggers the end of the game.
+Method: update_score
+Updates the score display with the current score.
+Method: start_timer
+Begins the game timer and initiates periodic updates.
+Method: update_timer
+Updates the timer display every second while the game is active.
+Method: end_game
+Handles the end-of-game logic:
+1. Stop Timer: Stops the game timer.
+2. Disable Buttons: Disables all card buttons.
+3. Show Summary: Displays the total score and a restart button.
+Method: restart_game
+Restarts the game by:
+1. Destroying Current Window: Closes the current game window.
+2. Creating New Instance: Initializes a new game instance.
+Usage Example
+To play the game, run the script. It will open a window with a 4x4 grid of cards. Click on the cards to reveal them and try to find matching pairs. The game tracks your score and time, and you can restart the game once all pairs are matched.
+Limitations
+* Responsiveness: The interface might become unresponsive during certain operations.
+* Scalability: The current implementation is designed for a 4x4 grid and may need adjustments for different grid sizes.
