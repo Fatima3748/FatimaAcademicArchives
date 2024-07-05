@@ -11,7 +11,7 @@ Python puzzle.py
 
 Logic
 Make empty list of button. Use nested for loop to make 16 buttons and store them in the list
-Make empty list for images and then load  their images. Initially draw buttons with a blank images. Each button has a function hooked with it which upon click loads its image which is already assigned to each button randomly.
+Make empty list for images and then load  their images. Initially draw buttons with a blank images. Each button has a function hooked with it which upon click loads its image which is already assigned to each button randomly.To implement the logic for tracking wrong card matches in Memory Puzzle Game, I introduced a counter to record the number of incorrect matches. Whenever two cards are exposed by the player, the check_match method is invoked to compare the cards. If the images of the exposed cards do not match, the counter for wrong matches is incremented. This counter is displayed using a label that updates dynamically to show the current number of wrong matches. The handleOnClick method controls the card flipping process, and when an incorrect match is detected, the cards are flipped back to their original state (the card back image) after a short delay. This provides immediate visual feedback to the player and ensures the game continues smoothly. The continuous updating of the wrong match counter serves as an informative metric for players, highlighting their progress and areas for improvement.
 
 Detail of class and Methods which I used
 Class Initialization
